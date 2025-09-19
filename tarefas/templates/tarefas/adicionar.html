@@ -1,12 +1,15 @@
 {% extends 'tarefas/base.html' %}
 
-
+{% block titulo %}Adicionar Tarefa Nova{% endblock %}
 
 {% block corpo %}
-<h1>Telinha de adicionar</h1>
+<h2>Telinha de adicionar</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Cadastrar" />
 
-<p>Muito bom</p>
+</form>
 
-<button>Adicionar</button>
 
 {% endblock %}
