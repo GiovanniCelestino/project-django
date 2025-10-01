@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import TarefaForm
 #from django.http import HttpResponse
 from .models import Tarefa
@@ -24,4 +24,8 @@ def add(request):
     return render(request, "tarefas/adicionar.html", { 'form': form })
     #return HttpResponse("Telinha de adicionar nova tarefa")
 
+
+def tarefa(request, id):
+    tarefa = get_object_or_404(Tarefa, id=id)
+    return render(request, "tarefas/tarefa.html", { 'tarefa': tarefa})
 

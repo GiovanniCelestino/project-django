@@ -10,7 +10,7 @@
 <ul>
     {% for tarefa in tarefas %}
     <li>
-        {{ tarefa.titulo }} - 
+        <a href="{% url 'tarefa' tarefa.id %}">{{ tarefa.titulo }}</a> - 
         <strong>
             {% if tarefa.concluida %}
             ( Concluída )
